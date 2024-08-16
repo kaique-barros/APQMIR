@@ -1,0 +1,7 @@
+#projects { 
+    border: black solid 1px;
+    border-radius: 40px;
+    padding: 40px;
+    backdrop-filter: blur(4px);
+    box-shadow: inset rgb(0, 0, 0) 7px -6px ;
+}

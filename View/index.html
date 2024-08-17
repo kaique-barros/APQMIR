@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- links para o css -->
     <link rel="stylesheet" href="Styles/grid.css">
     <link rel="stylesheet" href="Styles/projects.css">
     <link rel="stylesheet" href="Styles/profile.css">
     <link rel="stylesheet" href="Styles/background.css">
+    <link rel="stylesheet" href="Styles/generic-styles.css">
+
+    <!-- links para fontes externas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+    
+    <!-- Configurações globais-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
 </head>
 <body>
-    <div id="projects">
-        <p>area de projetos</p>
+    <div id="projects" class="glass-box">
+        <h1>PROJETOS</h1>
+        <button class="project" id="new_project">Adicionar Projeto +</button>
     </div>
-    <div id="profile">
-        <p>area do perfil</p>
+    <div id="profile" class="glass-box">
+        <h1>PERFIL</h1>
     </div>
 </body>
+    <!-- links para os scripts de frontend -->
+    <script src="Animations/new_project.js"></script>
 </html>

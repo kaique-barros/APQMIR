@@ -5,12 +5,27 @@
 
     <!-- links para fontes externas -->
     
+    <!-- links para os controladores-->
+     <script src="../Controler/main.js"></script>
     <!-- Configurações globais-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
 </head>
 <body>
+    <button id="new_project">ADICIONAR PROJETO +</button>
+    <div id="andar_1">
+        <label>Número de Pontos de Telecom Totais<input type="number" min="0"></label>
+        <div>
+            <label for="camera">CFTV (Camera)</label>
+                <input type="radio" name="camera">
+            <label for="voz">VoIP (Voz)</label>
+                <input type="radio" name="voz">
+            <label for="adicionar">Número de Pontos</label>
+                <input type="number" min="0" name="adicionar">
+            <input type="submit" value="ADICIONAR" onclick="adicionar_andar()">
+        </div>
+    </div>
 </body>
     <!-- links para os scripts de frontend -->
 </html>

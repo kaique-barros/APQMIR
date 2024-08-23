@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--link para o jquery-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!-- links para o css -->
 
     <!-- links para fontes externas -->
     
-    <!-- links para os controladores-->
-     <script src="../Controler/main.js"></script>
     <!-- Configurações globais-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,18 +14,29 @@
 </head>
 <body>
     <button id="new_project">ADICIONAR PROJETO +</button>
-    <div id="andar_1">
+    <form id="andar_1">
         <label>Número de Pontos de Telecom Totais<input type="number" min="0"></label>
         <div>
-            <label for="camera">CFTV (Camera)</label>
-                <input type="radio" name="camera">
-            <label for="voz">VoIP (Voz)</label>
-                <input type="radio" name="voz">
-            <label for="adicionar">Número de Pontos</label>
-                <input type="number" min="0" name="adicionar">
-            <input type="submit" value="ADICIONAR" onclick="adicionar_andar()">
+            <!--CHECK LIST-->
+            <label>
+                CFTV (Camera)
+                <input type="radio" name="tipo_de_dado" value="camera">
+            </label>
+            <label>
+                VoIP (Voz)
+                <input type="radio" name="tipo_de_dado" value="voz">
+            </label>
+            <!---->
+            <label>
+                Número de Pontos
+                <input type="number" min="0" name="quantidade_de_pontos">
+            </label>
+            <!-- ENVIAR --> 
+            <input type="submit" value="ADICIONAR">
         </div>
-    </div>
+    </form>
 </body>
+    <!-- links para os controladores-->
+    <script src="../Controler/main.js"></script>
     <!-- links para os scripts de frontend -->
 </html>

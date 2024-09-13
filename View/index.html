@@ -4,7 +4,8 @@
     <!--link para o jquery-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!-- links para o css -->
-
+    <link rel="stylesheet" href="Styles/background.css">
+    <link rel="stylesheet" href="Styles/grid.css">
     <!-- links para fontes externas -->
     
     <!-- Configurações globais-->
@@ -13,28 +14,9 @@
     <title>Calculadora</title>
 </head>
 <body>
-    <button id="new_project">ADICIONAR PROJETO +</button>
-    <form id="andar_1">
-        <label>Número de Pontos de Telecom Totais<input type="number" min="0"></label>
-        <div>
-            <!--CHECK LIST-->
-            <label>
-                CFTV (Camera)
-                <input type="radio" name="tipo_de_dado" value="camera">
-            </label>
-            <label>
-                VoIP (Voz)
-                <input type="radio" name="tipo_de_dado" value="voz">
-            </label>
-            <!---->
-            <label>
-                Número de Pontos
-                <input type="number" min="0" name="quantidade_de_pontos">
-            </label>
-            <!-- ENVIAR --> 
-            <input type="submit" value="ADICIONAR">
-        </div>
-    </form>
+    <div id="projetos">
+        <button id="add_andar">Adicionar Andar</button>
+    </div>
 </body>
     <!-- links para os controladores-->
     <script src="../Controler/main.js"></script>

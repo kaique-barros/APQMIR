@@ -14,21 +14,15 @@
     <title>Calculadora</title>
 </head>
 <body>
-    <div id="projetos" style="color: white; font-family: Arial, Helvetica, sans-serif;">
-        <button id="add_andar">Adicionar Andar</button>
-        
-        <label for="is_TIPO">Andar Tipo?</label>
-        <input id="is_TIPO" type="checkbox">
-        
-        <label for="distancia_mh">Distância Média da malha</label>
-        <input type="number" min="0" id="distancia_mh">
-    </div>
+    <button id="add_predio">ADICIONAR PRÉDIO</button>
+    <div id="predios"></div>
 </body>
     <!-- links para os controladores-->
-    <script src="Controler/main.js"></script>
+    <script src="Controler/andares.js"></script>
+    <script src="Controler/predios.js"></script>
     <!-- links para os scripts de frontend -->
      <!-- <script type="module" src="../Model/Calculators/horizontal_mesh.js"></script> -->
      <script type="module" src="/Model/Calculators/ativos.js"></script>
      <script type="module" src="/Model/Calculators/lvl1_backbone.js"></script>
      <script type="module" src="/Model/Calculators/lvl2_backbone.js"></script>
-</html>
+</html> 

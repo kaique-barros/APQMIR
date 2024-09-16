@@ -6,7 +6,7 @@ function main(){
 }
 
 function atualizar_andares_tipo(predio){
-    let andares = $("#predio_1 input[name=andar_tipo]");
+    let andares = $("#"+predio+" input[name=andar_tipo]");
     let andares_tipo = new Array(0);
     for (let i = 0; i < andares.length; i++) {
         let andar = andares[i];
@@ -35,4 +35,24 @@ function atualizar_andares_tipo(predio){
         $("#"+andar + " input[type=number]")[1].value = cftv_pts;
         $("#"+andar + " input[type=number]")[2].value = voip_pts;
     })
+}
+
+$("#calcular").on("click", calcular)
+
+function calcular() {
+    let quantificacao = {
+        backbone_lvl_1:[
+
+        ],
+        backbone_lvl_2:[
+
+        ],
+        ma
+    }
+    console.log($(".predio"));
+
+    let tel_pts
+    let cftv_pts
+    let voip_pts
+    
 }

@@ -1,9 +1,9 @@
 <div class="predio" style="color: white; font-family: Arial, Helvetica, sans-serif;">
     <h1>PREDIO </h1>
     
-    <button class="add_andar" onclick="adicionar_andar($(this)[0].parentElement.id)">Adicionar Andar</button>
+    <button id="add_andar" onclick="adicionar_andar($(this)[0].parentElement.id)" class="entrada" >Adicionar Andar</button>
 
-    <button class="atualizar_andares_tipo" onclick="atualizar_andares_tipo($(this)[0].parentElement.id)">Atualizar andares tipo</button>
-
+    <button id="atualizar_andares_tipo" onclick="atualizar_andares_tipo($(this)[0].parentElement.id)" class="entrada">Atualizar andares tipo</button>
+    <input type="number" name="distancia_ate_a_set" class="entrada" placeholder="Distância até a SET" min="0">
     <div></div>
 </div>

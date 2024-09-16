@@ -1,16 +1,3 @@
-$("#add_predio").on("click", adicionar_predio);
-
-function adicionar_predio(){ 
-    $.ajax({
-        url:"../View/Containers/predio.html",
-        dataType: "html"})
-        .done((layout) => {
-           let predio = layout;
-           $("#predios").append(predio);
-           atualizar_numero_predios();
-    })
-};
-
 function atualizar_numero_predios(){
     let predios = document.getElementsByClassName("predio");
     let predio = "predio_" + predios.length;
@@ -19,4 +6,12 @@ function atualizar_numero_predios(){
     adicionar_andar(predio);
 }
 
-adicionar_predio();
+function adicionar_predio(){ 
+    $.ajax({
+        url:"../View/Containers/predio.html",
+        dataType: "html"})
+        .done((layout) => {
+            $("#predios").append(layout);
+            atualizar_numero_predios();
+    })
+};

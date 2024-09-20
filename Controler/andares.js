@@ -14,7 +14,7 @@ function atualizar_numero_andares(predio, nome_div_andares){
     let andares = $("#"+ nome_div_andares + " > .andar");
     let andar = predio + "-andar_" + andares.length;
     $("#"+ nome_div_andares + " > .andar")[0].id = andar;
-    $("#" + andar + " > h1")[0].innerHTML = "ANDAR " + andares.length;
+    $("#" + andar + " > h2")[0].innerHTML = "ANDAR " + andares.length;
 }
 
 function atualizar_andares_tipo(predio) {

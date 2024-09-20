@@ -38,21 +38,3 @@ function atualizar_andares_tipo(predio){
 }
 
 $("#calcular").on("click", calcular)
-
-function calcular() {
-    let quantificacao = {
-        backbone_lvl_1:[
-
-        ],
-        backbone_lvl_2:[
-
-        ],
-        ma
-    }
-    console.log($(".predio"));
-
-    let tel_pts
-    let cftv_pts
-    let voip_pts
-    
-}

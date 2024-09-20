@@ -6,7 +6,7 @@ function main(){
 }
 
 function atualizar_andares_tipo(predio){
-    let andares = $("#predio_1 input[name=andar_tipo]");
+    let andares = $("#"+predio+" input[name=andar_tipo]");
     let andares_tipo = new Array(0);
     for (let i = 0; i < andares.length; i++) {
         let andar = andares[i];
@@ -36,3 +36,5 @@ function atualizar_andares_tipo(predio){
         $("#"+andar + " input[type=number]")[2].value = voip_pts;
     })
 }
+
+$("#calcular").on("click", calcular)

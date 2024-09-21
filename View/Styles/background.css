@@ -43,25 +43,33 @@ body {
 }
 /* Estilização do Header */
 #main-header {
-    background-color: #1A4C7B; /* Cor da logo do CEFET */
-    padding: 20px 0; /* Aumenta o padding vertical */
-    height: 150px; /* Altura do header */
-    display: flex; /* Usar flexbox para centralizar o conteúdo */
-    justify-content: center; /* Centraliza horizontalmente */
+    background-color: #1A4C7B; 
+    padding: 0; /* Remover padding */
+    height: 170px; /* Deixar altura automática para ajustar */
+    display: flex; 
+    justify-content: center;
+    border-bottom: 1px #0056b3;
 }
 
 /* Estilização do Container da Logo */
 #logo-container {
-    display: flex; /* Usar flexbox para centralizar a logo */
-    align-items: center; /* Centraliza verticalmente a logo dentro do container */
+    display: flex;
+    align-items: center;
+    margin: 0; /* Remove margens */
+    padding: 0; /* Remove padding */
 }
+
 
 /* Estilização da Logo */
 #cefet-logo {
-    max-width: 350px; /* Ajusta o tamanho da logo */
+    max-width: 150px; /* Tamanho ajustado da logo */
     height: auto; /* Mantém a proporção da logo */
-    
+    display: block; /* Garante que não haja espaço embaixo da imagem */
+    margin: 0; /* Remove margens */
+    padding: 0; /* Remove padding */
+    border: none; /* Remove qualquer borda */
 }
+
 
 
 label {

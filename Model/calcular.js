@@ -41,6 +41,19 @@ function calcular() {
     
 }
 
+function calcula_materiais_back_lvl_1(info) {
+    materiais_back_lvl_1[0].quantidade = Math.round(info.qnt_fibras / 24)
+}
+function calcula_materiais_back_lvl_2(info) {
+    
+}
+function calcula_materiais_malha_horizontal(info) {
+    
+}
+
+
+
+
 function pega_predios() {
     let predios = [];
     

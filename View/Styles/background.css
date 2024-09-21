@@ -2,7 +2,8 @@
 body {
     background-color: #f4f4f9; /* Cor clara para um visual limpo */
     font-family: 'Arial', sans-serif;
-     color: #ffffff;/* Cor escura para contraste */
+    color: #333333; /* Mudança para uma cor escura adequada */
+    min-height: 100vh; /* Garante que o corpo tenha pelo menos a altura total da tela */
 }
 
 /* Estilização geral */
@@ -71,6 +72,22 @@ body {
 }
 
 
+/* Estilização do Footer */
+#main-footer {
+    background-color: #1A4C7B; /* Cor para combinar com o header */
+    color: white; /* Texto em branco para contraste */
+    text-align: center; /* Centraliza o texto */
+    padding: 20px 0; /* Espaçamento vertical */
+    position: relative; /* Para o posicionamento */
+    bottom: 0; /* Fixa o footer ao fundo */
+    width: 100%; /* Faz o footer ocupar toda a largura */
+}
+
+/* Estilização dos parágrafos no footer */
+#main-footer p {
+    margin: 5px 0; /* Margens para os parágrafos */
+}
+
 
 label {
     font-size: 1.2em; /* Aumenta o tamanho da fonte */
@@ -96,6 +113,12 @@ label input[type="radio"] {
     flex-direction: column;
     align-items: center;
     margin: 20px 0;
+    padding: 20px; /* Adiciona padding ao container */
+    background-color: #ffffff; /* Fundo branco para o container */
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    border-radius: 10px; /* Bordas arredondadas */
+    width: 90%; /* Aumenta a largura do container */
+    max-width: 900px; /* Aumenta a largura máxima */
 }
 
 /* Estilização de divisões */

@@ -27,6 +27,14 @@
         <button id="calcular" class="entrada">CALCULAR</button>
     </div>
     <div id="predios"></div>
+    <footer id="main-footer">
+        <p>&copy; <span id="current-year"></span> CEFET. Todos os direitos reservados.</p>
+        <p>Redes de computadores 3°ano.</p>
+    </footer>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+        
 </body>
     <!-- links para os controladores-->
     <script src="Controler/andares.js"></script>

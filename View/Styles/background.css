@@ -1,8 +1,120 @@
-body{
-    background-color: rgb(30, 31, 59);
+/* Estilização do corpo */
+body {
+    background-color: #f4f4f9; /* Cor clara para um visual limpo */
+    font-family: 'Arial', sans-serif;
+     color: #ffffff;/* Cor escura para contraste */
 }
+
+/* Estilização geral */
 .entrada {
-    border-radius: 10%;
-    margin: 0px 0.2vh 2vh 0.2vh;
-    padding: 10px 10px 10px 10px;
+    border-radius: 5px; /* Bordas mais suaves */
+    margin: 5px 5px 15px 5px;
+    padding: 10px;
+    background-color: #007BFF; /* Cor azul para os botões */
+    color: white; /* Texto branco nos botões */
+    border: none; /* Remover borda */
+    cursor: pointer; /* Mudança de cursor para botão */
+    transition: background-color 0.3s ease; /* Animação de hover */
+}
+
+/* Placeholder styling - Cross-browser */
+.entrada::placeholder {
+    color: #e0e0e0; /* Cor mais clara para o placeholder */
+}
+
+/* Para navegadores WebKit (Chrome, Safari, etc.) */
+.entrada::-webkit-input-placeholder {
+    color: #e0e0e0;
+}
+
+/* Para Firefox */
+.entrada::-moz-placeholder {
+    color: #e0e0e0;
+}
+
+/* Para Internet Explorer 10-11 */
+.entrada:-ms-input-placeholder {
+    color: #e0e0e0;
+}
+
+/* Para Edge */
+.entrada::-ms-input-placeholder {
+    color: #e0e0e0;
+}
+/* Estilização do Header */
+#main-header {
+    background-color: #1A4C7B; /* Cor da logo do CEFET */
+    padding: 20px 0; /* Aumenta o padding vertical */
+    height: 150px; /* Altura do header */
+    display: flex; /* Usar flexbox para centralizar o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+/* Estilização do Container da Logo */
+#logo-container {
+    display: flex; /* Usar flexbox para centralizar a logo */
+    align-items: center; /* Centraliza verticalmente a logo dentro do container */
+}
+
+/* Estilização da Logo */
+#cefet-logo {
+    max-width: 350px; /* Ajusta o tamanho da logo */
+    height: auto; /* Mantém a proporção da logo */
+    
+}
+
+
+label {
+    font-size: 1.2em; /* Aumenta o tamanho da fonte */
+    color: #007BFF; /* Cor da fonte */
+    margin-right: 8px; /* Espaço à direita da label */
+    display: flex; /* Permite que o texto e o input fiquem alinhados */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+label input[type="radio"] {
+    margin-left: 2px; /* Espaço à esquerda do input de rádio */
+}
+
+
+
+.entrada:hover {
+    background-color: #0056b3; /* Cor mais escura no hover */
+}
+
+/* Estilização do layout */
+#divInputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* Estilização de divisões */
+#predios, .predio, .andar {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* Fundo branco */
+    box-shadow: 0 4px 8px; /* Sombra leve */
+    border-radius: 10px; /* Bordas arredondadas */
+    width: 80%;
+    max-width: 800px;
+}
+
+/* Estilização de títulos */
+h2 {
+    font-size: 1.5em;
+    color: #007BFF;
+    text-align: center;
+}
+
+/* Inputs de número */
+input[type="number"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 10px;
+    font-size: 1em;
 }

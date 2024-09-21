@@ -14,11 +14,18 @@
     <title>Calculadora</title>
 </head>
 <body>
-    <input type="number" id="dist_media_malha_horizontal" placeholder="Distancia média da malha horizontal">
+    <header id="main-header">
+        <div id="logo-container">
+            <img src="View/Imagens/cefetlogo.jpg" alt="Logo do CEFET" id="cefet-logo">
+        </div>
+    </header>
+    </header>
+    <div id="divInputs">
     <input type="number" id="vel_back_ext" placeholder="Velocidade entre os predios">
     <input type="number" id="vel_back_int" placeholder="Velocidade interna dos predios">
     <button id="add_predio" class="entrada">ADICIONAR PRÉDIO</button>
     <button id="calcular" class="entrada">CALCULAR</button>
+</div>
     <div id="predios"></div>
 </body>
     <!-- links para os controladores-->

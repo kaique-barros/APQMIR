@@ -1,4 +1,31 @@
+/* Layout básico responsivo */
 body, html {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#divInputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    max-width: 500px;
+    margin: auto;
+}
+
+#predios {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dois prédios por linha */
+    gap: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #divInputs {
+        grid-template-columns: 1fr; /* Colocar inputs em uma coluna para telas pequenas */
+    }
+
+    #predios {
+        grid-template-columns: 1fr; /* Colocar um prédio por linha em telas menores */
+    }
 }

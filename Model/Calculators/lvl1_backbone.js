@@ -1,4 +1,4 @@
-let materiais_back_lvl_1 = [
+export const materiais_back_lvl_1 = [
     {
         nome: 'Distribuidor óptico (DIO) - chassi com 19" de largura e 1U de altura com 24 portas',
         unidade: "unid",

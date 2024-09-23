@@ -1,53 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!--link para o jquery-->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- links para o css -->
-    <link rel="stylesheet" href="View/Styles/background.css">
-    <link rel="stylesheet" href="View/Styles/grid.css">
-    <!-- links para fontes externas -->
-    
-    <!-- Configurações globais-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
-</head>
-<body>
-    <header id="main-header">
-        <div id="logo-container">
-            <img src="View/Imagens/cefetlogo.jpg" alt="Logo do CEFET" id="cefet-logo">
+    <head>
+        <!--link para o jquery-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <!-- links para o css -->
+        <link rel="stylesheet" href="View/Styles/background.css" />
+        <link rel="stylesheet" href="View/Styles/grid.css" />
+        <!-- links para fontes externas -->
+
+        <!-- Configurações globais-->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Calculadora</title>
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="./View/Imagens/cefetlogo.jpg"
+        />
+    </head>
+    <body>
+        <header id="main-header">
+            <div id="logo-container">
+                <img
+                    src="View/Imagens/cefetlogo.jpg"
+                    alt="Logo do CEFET"
+                    id="cefet-logo"
+                />
+            </div>
+        </header>
+        <div id="divInputs">
+            <input
+                type="number"
+                id="vel_back_ext"
+                placeholder="Velocidade entre os predios"
+            />
+            <input
+                type="number"
+                id="vel_back_int"
+                placeholder="Velocidade interna dos predios"
+            />
+            <button id="add_predio" class="entrada">ADICIONAR PRÉDIO</button>
+            <button id="calcular" class="entrada">CALCULAR</button>
         </div>
-    </header>
-    </header>
-    <div id="divInputs">
-        <input type="number" id="vel_back_ext" placeholder="Velocidade entre os predios">
-        <input type="number" id="vel_back_int" placeholder="Velocidade interna dos predios">
-        <button id="add_predio" class="entrada">ADICIONAR PRÉDIO</button>
-        <button id="calcular" class="entrada">CALCULAR</button>
-    </div>
-    <div id="predios"></div>
-    <div id="tabelas"></div>
-    <footer id="main-footer">
-        <p>&copy; <span id="current-year"></span> CEFET. Todos os direitos reservados.</p>
-        <p>Redes de computadores 3°ano.</p>
-    </footer>
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
-        
-</body>
+        <div id="predios"></div>
+        <div id="tabelas"></div>
+        <footer id="main-footer">
+            <p>
+                &copy; <span id="current-year"></span> CEFET. Todos os direitos
+                reservados.
+            </p>
+            <p>Redes de computadores 3°ano.</p>
+        </footer>
+        <script>
+            document.getElementById("current-year").textContent =
+                new Date().getFullYear();
+        </script>
+    </body>
     <!-- links para os controladores-->
     <script src="Controler/andares.js"></script>
     <script src="Controler/predios.js"></script>
     <script src="Model/calcular.js"></script>
     <!-- <script src="Controler/TabelaMH.js"></script; -->
 
-
     <script src="Controler/main.js"></script>
     <!-- links para os scripts de frontend -->
-     <!-- <script type="module" src="../Model/Calculators/horizontal_mesh.js"></script> -->
-     <script type="module" src="/Model/Calculators/lvl1_backbone.js"></script>
-     <script type="module" src="/Model/Calculators/lvl2_backbone.js"></script>
-     <script type="module" src="Model/Calculators/malha_horizontal.js"></script>
-</html> 
+    <!-- <script type="module" src="../Model/Calculators/horizontal_mesh.js"></script> -->
+    <script type="module" src="/Model/Calculators/lvl1_backbone.js"></script>
+    <script type="module" src="/Model/Calculators/lvl2_backbone.js"></script>
+    <script type="module" src="/Model/Calculators/malha_horizontal.js"></script>
+</html>

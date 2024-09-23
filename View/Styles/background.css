@@ -1,7 +1,7 @@
 /* Estilização do corpo */
 body {
     background-color: #f4f4f9; /* Cor clara para um visual limpo */
-    font-family: 'Arial', sans-serif;
+    font-family: "Arial", sans-serif;
     color: #333333; /* Mudança para uma cor escura adequada */
     min-height: 100vh; /* Garante que o corpo tenha pelo menos a altura total da tela */
 }
@@ -11,7 +11,7 @@ body {
     border-radius: 5px; /* Bordas mais suaves */
     margin: 5px 5px 15px 5px;
     padding: 10px;
-    background-color: #007BFF; /* Cor azul para os botões */
+    background-color: #007bff; /* Cor azul para os botões */
     color: white; /* Texto branco nos botões */
     border: none; /* Remover borda */
     cursor: pointer; /* Mudança de cursor para botão */
@@ -44,10 +44,10 @@ body {
 }
 /* Estilização do Header */
 #main-header {
-    background-color: #1A4C7B; 
+    background-color: #1a4c7b;
     padding: 0; /* Remover padding */
     height: 170px; /* Deixar altura automática para ajustar */
-    display: flex; 
+    display: flex;
     justify-content: center;
     border-bottom: 1px #0056b3;
 }
@@ -60,7 +60,6 @@ body {
     padding: 0; /* Remove padding */
 }
 
-
 /* Estilização da Logo */
 #cefet-logo {
     max-width: 150px; /* Tamanho ajustado da logo */
@@ -71,10 +70,9 @@ body {
     border: none; /* Remove qualquer borda */
 }
 
-
 /* Estilização do Footer */
 #main-footer {
-    background-color: #1A4C7B; /* Cor para combinar com o header */
+    background-color: #1a4c7b; /* Cor para combinar com o header */
     color: white; /* Texto em branco para contraste */
     text-align: center; /* Centraliza o texto */
     padding: 20px 0; /* Espaçamento vertical */
@@ -88,10 +86,9 @@ body {
     margin: 5px 0; /* Margens para os parágrafos */
 }
 
-
 label {
     font-size: 1.2em; /* Aumenta o tamanho da fonte */
-    color: #007BFF; /* Cor da fonte */
+    color: #007bff; /* Cor da fonte */
     margin-right: 8px; /* Espaço à direita da label */
     display: flex; /* Permite que o texto e o input fiquem alinhados */
     align-items: center; /* Centraliza verticalmente */
@@ -100,8 +97,6 @@ label {
 label input[type="radio"] {
     margin-left: 2px; /* Espaço à esquerda do input de rádio */
 }
-
-
 
 .entrada:hover {
     background-color: #0056b3; /* Cor mais escura no hover */
@@ -122,7 +117,9 @@ label input[type="radio"] {
 }
 
 /* Estilização de divisões */
-#predios, .predio, .andar {
+#predios,
+.predio,
+.andar {
     margin: 20px auto;
     padding: 20px;
     background-color: #fff; /* Fundo branco */
@@ -135,7 +132,7 @@ label input[type="radio"] {
 /* Estilização de títulos */
 h2 {
     font-size: 1.5em;
-    color: #007BFF;
+    color: #007bff;
     text-align: center;
 }
 

@@ -3,31 +3,37 @@ const materiais_malha_horizontal = [
         nome: 'Tomada RJ 45 Fêmea',
         unidade: "unid",
         quantidade: 0,
-        categoria: []  // Vazio, pois não possui
     },
     {
         nome: 'Patch Cord Tamanho 3 m',
         unidade: "unid",
-        quantidade: 0,
-        categoria: [
-            { tipo: '6', cor: ['azul', 'verde', 'amarelho'] },
-            { tipo: '5e', cor: ['azul', 'verde', 'amarelo'] }
-        ]
+        categoria:{
+            "6": {
+                'azul': {
+                    quantidade: 0
+                },
+                'a mesma do teto': {
+                    quantidade: 0
+                }
+            }
+        }
     },
     {
         nome: 'Espelho de conexão',
         unidade: 'unid',
-        quantidade: 0,
-        categoria: [
-            { tipo: '2x4' },
-            { tipo: '4x4' }
-        ]  // Apenas tipo, sem cor
+        tamanho: {
+            "2x4": {
+                quantidade: 0
+            },
+            "4x4": {
+                quantidade: 0
+            }
+        }
     },
     {
         nome: 'Etiquetas para identificação de tomadas e espelho',
         unidade: 'unid',
-        quantidade: 0,
-        categoria: []  // Vazio, pois não possui
+        quantidade: 0
     },
     {
         nome: 'Cabo UTP rígido',
@@ -42,70 +48,38 @@ const materiais_malha_horizontal = [
     {
         nome: 'PPMH (Patch Panel de Malha Horizontal) 24P',
         unidade: 'unid',
-        quantidade: 0,
-        categoria: []  // Vazio, pois não possui
+        quantidade: 0
     },
     {
         nome: 'Organizador frontal de cabo - Tipo - (19 polegadas)',
         unidade: 'unid',
-        quantidade: 0,
-        categoria: []  // Vazio, pois não possui
+        quantidade: 0
     },
     {
         nome: 'Patch Cable (Tamanho: 2m)',
         unidade: 'unid',
         quantidade: 0,
-        categoria: [
-            { tipo: '6', cor: ['azul', 'verde', 'amarelho'] },
-            { tipo: '5e', cor: ['azul', 'verde', 'amarelo'] }
-        ]
-    },
-    {
-        nome: 'Parafuso Porca Gaiola (conjunto com 10 unidades)',
-        unidade: 'Conjuntos',
-        quantidade: 0,
-        categoria: []  // Vazio, pois não possui
-    },
-    {
-        nome: 'Abraçadeira de velcro de 3m',
-        unidade: 'metros',
-        quantidade: 0,
-        categoria: []  // Vazio, pois não possui
-    },
-    {
-        nome: 'Abraçadeira Hellermann (conjunto com 100 unidades)',
-        unidade: 'Conjunto',
-        quantidade: 0,
-        categoria: []  // Vazio, pois não possui
-    },
-    {
-        nome: 'Filtro de linha com 06 tomadas',
-        unidade: 'unid',
-        quantidade: 0,
-        categoria: []  // Vazio, pois não possui
-    },
-    {
-        nome: 'Etiquetas para Patch Panel',
-        unidade: 'unid',
-        quantidade: 0,
-        categoria: []  // Vazio, pois não possui
-    },
-    {
-        nome: 'Etiquetas para portas do Patch Panel',
-        unidade: 'unid',
-        quantidade: 0,
-        categoria: []  // Vazio, pois não possui
-    },
-    {
-        nome: 'Etiquetas para identificação dos Patch Cables',
-        unidade: 'unid',
-        quantidade: 0,
-        categoria: []  // Vazio, pois não possui
-    },
-    {
-        nome: 'Etiqueta identificação do cabo de malha horizontal',
-        unidade: 'unid',
-        quantidade: 0,
-        categoria: []  // Vazio, pois não possui
+        categoria: {
+            "6": {
+                cor: {
+                    'azul': {
+                        quantidade: 0
+                    },
+                    'verde': {
+                        quantidade: 0
+                    },
+                    'amarelo': {
+                        quantidade: 0
+                    }
+                }
+            },
+            "5e": {
+                cor: {
+                    'verde': {
+                        quantidade: 0
+                    }
+                }
+            }
+        }
     }
 ];

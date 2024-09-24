@@ -68,10 +68,9 @@ function calcular() {
 
     calcula_materiais_back_lvl_1(backbone_lvl_1)
     calcula_materiais_back_lvl_2(backbone_lvl_2, predios)
-    console.log(materiais_back_lvl_1)
-    console.log(materiais_back_lvl_2)
-    calcula_materiais_malha_horizontal(malha_horizontal_TT)
-    
+    calcula_materiais_malha_horizontal(malha_horizontal_TT, predios)        
+    //console.log(materiais_back_lvl_1)
+    //console.log(materiais_back_lvl_2)
     //console.log(materiais_malha_horizontal)
 }
 
@@ -117,7 +116,7 @@ function calcula_materiais_back_lvl_1(info) {
         return 
     }
 
-    using_materiais_back_lvl_1[0].quantidade = info.qnt_predios;
+    materiais_back_lvl_1[0].quantidade = info.qnt_predios;
     materiais_back_lvl_1[1].quantidade = info.qnt_predios;
     materiais_back_lvl_1[2][tecnologia.tipo_fibra][tecnologia.nucleo_fibra].quantidade = info.qnt_fibras * info.qnt_predios;
     materiais_back_lvl_1[3][tecnologia.tipo_fibra][tecnologia.nucleo_fibra].quantidade = info.qnt_fibras * info.qnt_predios / 2;
@@ -194,10 +193,57 @@ function calcula_materiais_back_lvl_2(info, predios) {
     materiais_back_lvl_2[5].fibras[info.qnt_fibras].quantidade = to
     materiais_back_lvl_2[6][tecnologia.tipo_fibra][tecnologia.nucleo_fibra]['Tigth Buffer'].quantidade = (info.dist_interna * 1.2)
     materiais_back_lvl_2[6].quantidade_de_fibras = info.qnt_fibras
-    
 }
-function calcula_materiais_malha_horizontal(info) {
+function calcula_materiais_malha_horizontal(info, predios) {
+    let tomadas = 0
     
+    let patch_cord_azul = 0
+    let patch_cord_cor_do_teto = 0
+    
+    let patch_pannels = 0
+    
+    let patch_cable_azul = 0
+    let patch_cable_verde = 0
+    let patch_cable_amarelo = 0
+    
+    predios.forEach((predio) => {
+        let tomadas_PP = 0
+        let patch_cord_azul_PP = 0
+        let patch_cord_cor_do_teto_PP = 0
+        let patch_pannels_PP = 0
+        predio.andares.forEach((andar) => {
+            let tomadas_no_andar = andar.tel_pts * 2 - andar.cftv_pts - andar.voip_pts
+            tomadas_PP += tomadas_no_andar
+            
+            patch_cord_azul_PP += tomadas_no_andar - andar.cftv_pts
+            patch_cord_cor_do_teto_PP += andar.cftv_pts
+            
+            patch_pannels_PP += Math.ceil(tomadas_no_andar / 24, 1)
+
+            patch_cable_azul += tomadas_no_andar - andar.cftv_pts - andar.voip_pts
+            patch_cable_verde += andar.voip_pts
+            patch_cable_amarelo += andar.cftv_pts
+        })
+        tomadas += tomadas_PP
+        
+        patch_cord_azul += patch_cord_azul_PP
+        patch_cord_cor_do_teto += patch_cord_cor_do_teto_PP
+        
+        patch_pannels += patch_pannels_PP
+
+    })
+    materiais_malha_horizontal[0].quantidade = tomadas
+    materiais_malha_horizontal[1].categoria['6']['azul'].quantidade = patch_cord_azul
+    materiais_malha_horizontal[1].categoria['6']['a mesma do teto'].quantidade = patch_cord_cor_do_teto
+    materiais_malha_horizontal[2].tamanho['2x4'].quantidade = (patch_cord_azul / 2) + patch_cord_cor_do_teto
+    materiais_malha_horizontal[3].quantidade = materiais_malha_horizontal[2].tamanho['2x4'].quantidade + materiais_malha_horizontal[1].categoria['6']['a mesma do teto'].quantidade + materiais_malha_horizontal[1].categoria['6']['azul'].quantidade
+    materiais_malha_horizontal[4]['6'].quantidade = Math.ceil(tomadas * info.dist_media / 305, 1)
+    materiais_malha_horizontal[5].quantidade = patch_pannels
+    materiais_malha_horizontal[6].quantidade = patch_pannels
+    materiais_malha_horizontal[7].categoria['6']['azul'] = patch_cable_azul
+    materiais_malha_horizontal[7].categoria['5e']['verde'] = patch_cable_verde
+    materiais_malha_horizontal[7].categoria['6']['amarelo'] = patch_cable_amarelo
+    console.log(materiais_malha_horizontal)
 }
 
 function pega_predios() {

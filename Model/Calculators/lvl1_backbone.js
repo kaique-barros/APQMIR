@@ -1,4 +1,4 @@
-export const materiais_back_lvl_1 = [
+const materiais_back_lvl_1 = [
     {
         nome: 'Distribuidor óptico (DIO) - chassi com 19" de largura e 1U de altura com 24 portas',
         unidade: "unid",
@@ -12,7 +12,7 @@ export const materiais_back_lvl_1 = [
     {
         nome: 'PigTail LC',
         unidade: "unid.",
-        MM: {
+        'MM': {
             cor: "laranja",
             '50x125': {
                 quantidade: 0
@@ -21,7 +21,7 @@ export const materiais_back_lvl_1 = [
                 quantidade: 0
             }
         },
-        SM: {
+        'SM': {
             cor: "azul",
             '9x125': {
                 quantidade: 0
@@ -31,13 +31,13 @@ export const materiais_back_lvl_1 = [
     {
         nome: 'Acoplador óptico duplo - LC',
         unidade: "unid.",
-        SM: {
+        'SM': {
             cor: "azul",
             '9x125': {
                 quantidade: 0
             }
         },
-        MM: {
+        'MM': {
             cor: "laranja",
             '50x125': {
                 quantidade: 0
@@ -50,13 +50,13 @@ export const materiais_back_lvl_1 = [
     {
         nome: 'Cordão óptico 9x125 - duplo - LC(PC) - 2m - azul	',
         unidade: "unid.",
-        SM: {
+        'SM': {
             cor: "azul",
             '9x125': {
                 quantidade: 0
             }
         },
-        MM: {
+        'MM': {
             cor: "laranja",
             '50x125': {
                 quantidade: 0
@@ -88,7 +88,7 @@ export const materiais_back_lvl_1 = [
         nome: 'Cabo Óptico',
         unidade: "m",
         quantidade_de_fibras: 0,
-        SM: {
+        'SM': {
             '9x125': {
                 'Loose': {
                     quantidade: 0
@@ -101,7 +101,7 @@ export const materiais_back_lvl_1 = [
                 }
             }
         },
-        MM: {
+        'MM': {
             '50x125': {
                 'Loose': {
                     quantidade: 0
@@ -128,3 +128,23 @@ export const materiais_back_lvl_1 = [
     },
     
 ]
+
+
+
+
+
+
+
+
+/*
+let backbone_lvl_2 = {
+        dist_interna: distancia_interna, 
+        velocidade: $("#vel_back_int")[0].value, 
+        qnt_fibras: quantidade_de_fibras
+    }
+        
+    
+
+
+
+    */

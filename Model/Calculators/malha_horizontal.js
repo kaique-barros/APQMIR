@@ -1,4 +1,4 @@
-export const mhMateriais = [
+const materiais_malha_horizontal = [
     {
         nome: 'Tomada RJ 45 Fêmea',
         unidade: "unid",
@@ -32,11 +32,12 @@ export const mhMateriais = [
     {
         nome: 'Cabo UTP rígido',
         unidade: 'caixas',
-        quantidade: 0,
-        categoria: [
-            { tipo: '6' },
-            { tipo: '5e' }
-        ]  // Apenas tipo
+        '5e': {
+            quantidade: 0
+        },
+        '6': {
+            quantidade: 0
+        }
     },
     {
         nome: 'PPMH (Patch Panel de Malha Horizontal) 24P',

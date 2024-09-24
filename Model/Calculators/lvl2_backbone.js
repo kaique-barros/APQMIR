@@ -1,4 +1,4 @@
-export const materiais_back_lvl_2 = [
+const materiais_back_lvl_2 = [
     {
         nome: 'Distribuidor óptico (DIO) - chassi com 19" de largura e 1U de altura com 24 portas',
         unidade: "unid",
@@ -12,7 +12,7 @@ export const materiais_back_lvl_2 = [
     {
         nome: 'PigTail LC',
         unidade: "unid.",
-        MM: {
+        'MM': {
             cor: "laranja",
             '50x125': {
                 quantidade: 0
@@ -21,7 +21,7 @@ export const materiais_back_lvl_2 = [
                 quantidade: 0
             }
         },
-        SM: {
+        'SM': {
             cor: "azul",
             '9x125': {
                 quantidade: 0
@@ -31,13 +31,13 @@ export const materiais_back_lvl_2 = [
     {
         nome: 'Acoplador óptico duplo - LC',
         unidade: "unid.",
-        SM: {
+        'SM': {
             cor: "azul",
             '9x125': {
                 quantidade: 0
             }
         },
-        MM: {
+        'MM': {
             cor: "laranja",
             '50x125': {
                 quantidade: 0
@@ -50,13 +50,13 @@ export const materiais_back_lvl_2 = [
     {
         nome: 'Cordão óptico 9x125 - duplo - LC(PC) - 2m - azul	',
         unidade: "unid.",
-        SM: {
+        'SM': {
             cor: "azul",
             '9x125': {
                 quantidade: 0
             }
         },
-        MM: {
+        'MM': {
             cor: "laranja",
             '50x125': {
                 quantidade: 0
@@ -88,7 +88,7 @@ export const materiais_back_lvl_2 = [
         nome: 'Cabo Óptico',
         unidade: "m",
         quantidade_de_fibras: 0,
-        SM: {
+        'SM': {
             '9x125': {
                 'Loose': {
                     quantidade: 0
@@ -101,7 +101,7 @@ export const materiais_back_lvl_2 = [
                 }
             }
         },
-        MM: {
+        'MM': {
             '50x125': {
                 'Loose': {
                     quantidade: 0

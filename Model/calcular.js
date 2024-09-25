@@ -66,12 +66,15 @@ function calcular() {
         dist_media: $("#dist_media_malha_horizontal")[0].value
     }
 
-    calcula_materiais_back_lvl_1(backbone_lvl_1)
-    calcula_materiais_back_lvl_2(backbone_lvl_2, predios)
-    calcula_materiais_malha_horizontal(malha_horizontal_TT, predios)        
-    //console.log(materiais_back_lvl_1)
-    //console.log(materiais_back_lvl_2)
-    //console.log(materiais_malha_horizontal)
+    if(tem_backbone_lvl_1){
+        calcula_materiais_back_lvl_1(backbone_lvl_1)
+        }
+    calcula_materiais_back_lvl_2(backbone_lvl_2, predios)    
+    soma_backbones()
+
+    calcula_materiais_malha_horizontal(malha_horizontal_TT, predios)  
+
+    calcula_rack(predios)
 }
 
 function calcula_materiais_back_lvl_1(info) {
@@ -243,7 +246,94 @@ function calcula_materiais_malha_horizontal(info, predios) {
     materiais_malha_horizontal[7].categoria['6']['azul'] = patch_cable_azul
     materiais_malha_horizontal[7].categoria['5e']['verde'] = patch_cable_verde
     materiais_malha_horizontal[7].categoria['6']['amarelo'] = patch_cable_amarelo
-    console.log(materiais_malha_horizontal)
+}
+
+function calcula_rack(predios) {
+    let racks = []
+
+    predios.forEach((predio) => {
+        predio.andares.forEach((andar) => {
+            let tomadas = andar.tel_pts * 2 - andar.cftv_pts - andar.voip_pts
+            let patch_pannels = Math.ceil(tomadas / 24, 1)
+            let tamanho = patch_pannels * 4
+            tamanho += tamanho == 0 ? 0 : 4
+            tamanho *= 1.5
+            let adicionado = false
+            let quantidade = 1
+            for(; tamanho > 32; tamanho /= 2){
+                quantidade++
+            }
+            if (tamanho != 0) {
+                Math.ceil(tamanho)
+            }
+            for(let rack of racks){
+                if(rack.tamanho == tamanho && tamanho != 0){
+                    rack.quantidade += quantidade
+                    adicionado = true
+                }
+            }
+            if(!adicionado && tamanho != 0){
+                racks.push({
+                    tamanho: tamanho,
+                    quantidade: quantidade
+                })
+            }
+        })
+        let tamanho_rack_backbone = materiais_back_total[0].quantidade * 4  // DIO + ORGANIZADOR DO DIO + SWITCH + ORGANIZADOR DO SWITCH
+        tamanho_rack_backbone += Math.ceil(predio.cftv_pts / 24, 1)// os NVR 
+        tamanho_rack_backbone += Math.ceil(predio.cftv_pts / 24, 1) // os organizadores dos NVR
+        tamanho_rack_backbone += 4 // para a bandeja
+        tamanho_rack_backbone *= 1.5 // para expansão
+        tamanho_rack_backbone = Math.ceil(tamanho_rack_backbone)
+        racks.push({
+            tamanho: tamanho_rack_backbone, 
+            quantidade: 1
+        })
+    })
+    return racks
+}
+
+function calcula_materiais_miscelanea() {
+    
+}
+
+function soma_backbones() {
+    materiais_back_total[0].quantidade = materiais_back_lvl_1[0].quantidade + materiais_back_lvl_2[0].quantidade
+    
+    materiais_back_total[1].quantidade = materiais_back_lvl_1[1].quantidade + materiais_back_lvl_2[1].quantidade
+    
+    materiais_back_total[2]['MM']['50x125'].quantidade = materiais_back_lvl_1[2]['MM']['50x125'].quantidade + materiais_back_lvl_2[2]['MM']['50x125'].quantidade
+    materiais_back_total[2]['MM']['62,5x125'].quantidade = materiais_back_lvl_1[2]['MM']['62,5x125'].quantidade + materiais_back_lvl_2[2]['MM']['62,5x125'].quantidade
+    materiais_back_total[2]['SM']['9x125'].quantidade = materiais_back_lvl_1[2]['SM']['9x125'].quantidade + materiais_back_lvl_2[2]['SM']['9x125'].quantidade
+    
+    materiais_back_total[3]['MM']['50x125'].quantidade = materiais_back_lvl_1[3]['MM']['50x125'].quantidade + materiais_back_lvl_2[3]['MM']['50x125'].quantidade
+    materiais_back_total[3]['MM']['62,5x125'].quantidade = materiais_back_lvl_1[3]['MM']['62,5x125'].quantidade + materiais_back_lvl_2[3]['MM']['62,5x125'].quantidade
+    materiais_back_total[3]['SM']['9x125'].quantidade = materiais_back_lvl_1[3]['SM']['9x125'].quantidade + materiais_back_lvl_2[3]['SM']['9x125'].quantidade
+    
+    materiais_back_total[4]['MM']['50x125'].quantidade = materiais_back_lvl_1[4]['MM']['50x125'].quantidade + materiais_back_lvl_2[4]['MM']['50x125'].quantidade
+    materiais_back_total[4]['MM']['62,5x125'].quantidade = materiais_back_lvl_1[4]['MM']['62,5x125'].quantidade + materiais_back_lvl_2[4]['MM']['62,5x125'].quantidade
+    materiais_back_total[4]['SM']['9x125'].quantidade = materiais_back_lvl_1[4]['SM']['9x125'].quantidade + materiais_back_lvl_2[4]['SM']['9x125'].quantidade
+
+    materiais_back_total[5].fibras[4].quantidade = materiais_back_lvl_1[5].fibras[4].quantidade + materiais_back_lvl_2[5].fibras[4].quantidade
+    materiais_back_total[5].fibras[6].quantidade = materiais_back_lvl_1[5].fibras[6].quantidade + materiais_back_lvl_2[5].fibras[6].quantidade
+    materiais_back_total[5].fibras[8].quantidade = materiais_back_lvl_1[5].fibras[8].quantidade + materiais_back_lvl_2[5].fibras[8].quantidade
+    materiais_back_total[5].fibras[12].quantidade = materiais_back_lvl_1[5].fibras[12].quantidade + materiais_back_lvl_2[5].fibras[12].quantidade
+
+    materiais_back_total[6].quantidade_de_fibras = materiais_back_lvl_1[6].quantidade_de_fibras
+    materiais_back_total[6].quantidade_de_fibras = materiais_back_lvl_2[6].quantidade_de_fibras
+
+    materiais_back_total[6]['SM']['9x125']['Loose'].quantidade = materiais_back_lvl_1[6]['SM']['9x125']['Loose'].quantidade + materiais_back_lvl_2[6]['SM']['9x125']['Loose'].quantidade
+    materiais_back_total[6]['SM']['9x125']['Loose autosustentável'].quantidade = materiais_back_lvl_1[6]['SM']['9x125']['Loose autosustentável'].quantidade + materiais_back_lvl_2[6]['SM']['9x125']['Loose autosustentável'].quantidade
+    materiais_back_total[6]['SM']['9x125']['Tigth Buffer'].quantidade = materiais_back_lvl_1[6]['SM']['9x125']['Tigth Buffer'].quantidade + materiais_back_lvl_2[6]['SM']['9x125']['Tigth Buffer'].quantidade
+
+    materiais_back_total[6]['MM']['50x125']['Loose'].quantidade = materiais_back_lvl_1[6]['MM']['50x125']['Loose'].quantidade + materiais_back_lvl_2[6]['MM']['50x125']['Loose'].quantidade
+    materiais_back_total[6]['MM']['50x125']['Loose autosustentável'].quantidade = materiais_back_lvl_1[6]['MM']['50x125']['Loose autosustentável'].quantidade + materiais_back_lvl_2[6]['MM']['50x125']['Loose autosustentável'].quantidade
+    materiais_back_total[6]['MM']['50x125']['Tigth Buffer'].quantidade = materiais_back_lvl_1[6]['MM']['50x125']['Tigth Buffer'].quantidade + materiais_back_lvl_2[6]['MM']['50x125']['Tigth Buffer'].quantidade
+
+    materiais_back_total[6]['MM']['62,5x125']['Loose'].quantidade = materiais_back_lvl_1[6]['MM']['62,5x125']['Loose'].quantidade + materiais_back_lvl_2[6]['MM']['62,5x125']['Loose'].quantidade
+    materiais_back_total[6]['MM']['62,5x125']['Loose autosustentável'].quantidade = materiais_back_lvl_1[6]['MM']['62,5x125']['Loose autosustentável'].quantidade + materiais_back_lvl_2[6]['MM']['62,5x125']['Loose autosustentável'].quantidade
+    materiais_back_total[6]['MM']['62,5x125']['Tigth Buffer'].quantidade = materiais_back_lvl_1[6]['MM']['62,5x125']['Tigth Buffer'].quantidade + materiais_back_lvl_2[6]['MM']['62,5x125']['Tigth Buffer'].quantidade
+
 }
 
 function pega_predios() {

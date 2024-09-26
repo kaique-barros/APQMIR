@@ -79,6 +79,9 @@ function calcular() {
 
     calcula_materiais_miscelanea(racks)
 
+    $("#containerTabelaMH").remove()
+    $("#containerTabelaBackbone").remove()
+
     inserir_tabela_backbone(tec_back_lvl_1, tec_back_lvl_2)
     inserir_tabela_malha_horiontal(racks)
 }

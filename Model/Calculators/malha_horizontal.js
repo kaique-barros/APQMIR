@@ -30,7 +30,7 @@ const materiais_malha_horizontal = [
             }
         }
     },
-    {
+    { // antigo e não usado, mas se tirar vai quebrar tudo
         nome: 'Etiquetas para identificação de tomadas e espelho',
         unidade: 'unid',
         quantidade: 0

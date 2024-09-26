@@ -20,22 +20,17 @@ const materiais_miscelanea = [
         quantidade: 0 
     },
     {
-        nome: 'Etiquetas para Patch Panel',
+        nome: 'Etiquetas',
         unidade: 'unid',
         quantidade: 0 
     },
     {
-        nome: 'Etiquetas para portas do Patch Panel',
-        unidade: 'unid',
-         quantidade: 0 
-    },
-    {
-        nome: 'Etiquetas para identificação dos Patch Cables',
+        nome: 'Bandeja fixa - 19" de lagura',
         unidade: 'unid',
         quantidade: 0 
     },
     {
-        nome: 'Etiqueta identificação do cabo de malha horizontal',
+        nome: 'Bandeja Deslizante - 19" de lagura',
         unidade: 'unid',
         quantidade: 0 
     }

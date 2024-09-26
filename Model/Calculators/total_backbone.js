@@ -48,7 +48,7 @@ const materiais_back_total = [
         }
     },
     {
-        nome: 'Cordão óptico 9x125 - duplo - LC(PC) - 2m - azul	',
+        nome: 'Cordão óptico - duplo - LC(PC) - 2m - azul	',
         unidade: "unid.",
         'SM': {
             cor: "azul",

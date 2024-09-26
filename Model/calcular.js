@@ -66,17 +66,22 @@ function calcular() {
         dist_media: $("#dist_media_malha_horizontal")[0].value
     }
 
+    let tec_back_lvl_1
     if(tem_backbone_lvl_1){
-        calcula_materiais_back_lvl_1(backbone_lvl_1)
-        }
-    calcula_materiais_back_lvl_2(backbone_lvl_2, predios)    
+        tec_back_lvl_1 = calcula_materiais_back_lvl_1(backbone_lvl_1)
+    }
+    let tec_back_lvl_2 = calcula_materiais_back_lvl_2(backbone_lvl_2, predios)    
     soma_backbones()
 
     calcula_materiais_malha_horizontal(malha_horizontal_TT, predios)  
 
-    calcula_rack(predios)
-}
+    let racks = calcula_rack(predios)
 
+    calcula_materiais_miscelanea(racks)
+
+    inserir_tabela_backbone(tec_back_lvl_1, tec_back_lvl_2)
+    inserir_tabela_malha_horiontal(racks)
+}
 function calcula_materiais_back_lvl_1(info) {
     let tecnologia = {
         padrao_transmissao: '',
@@ -196,6 +201,7 @@ function calcula_materiais_back_lvl_2(info, predios) {
     materiais_back_lvl_2[5].fibras[info.qnt_fibras].quantidade = to
     materiais_back_lvl_2[6][tecnologia.tipo_fibra][tecnologia.nucleo_fibra]['Tigth Buffer'].quantidade = (info.dist_interna * 1.2)
     materiais_back_lvl_2[6].quantidade_de_fibras = info.qnt_fibras
+    return tecnologia
 }
 function calcula_materiais_malha_horizontal(info, predios) {
     let tomadas = 0
@@ -233,7 +239,6 @@ function calcula_materiais_malha_horizontal(info, predios) {
         patch_cord_cor_do_teto += patch_cord_cor_do_teto_PP
         
         patch_pannels += patch_pannels_PP
-
     })
     materiais_malha_horizontal[0].quantidade = tomadas
     materiais_malha_horizontal[1].categoria['6']['azul'].quantidade = patch_cord_azul
@@ -243,15 +248,16 @@ function calcula_materiais_malha_horizontal(info, predios) {
     materiais_malha_horizontal[4]['6'].quantidade = Math.ceil(tomadas * info.dist_media / 305, 1)
     materiais_malha_horizontal[5].quantidade = patch_pannels
     materiais_malha_horizontal[6].quantidade = patch_pannels
-    materiais_malha_horizontal[7].categoria['6']['azul'] = patch_cable_azul
-    materiais_malha_horizontal[7].categoria['5e']['verde'] = patch_cable_verde
-    materiais_malha_horizontal[7].categoria['6']['amarelo'] = patch_cable_amarelo
+    materiais_malha_horizontal[7].categoria['6'].cor['azul'].quantidade = patch_cable_azul
+    materiais_malha_horizontal[7].categoria['5e'].cor['verde'].quantidade = patch_cable_verde
+    materiais_malha_horizontal[7].categoria['6'].cor['amarelo'].quantidade = patch_cable_amarelo
 }
-
 function calcula_rack(predios) {
     let racks = []
+    let numero_de_andares = 0
 
     predios.forEach((predio) => {
+        numero_de_andares += predio.andares.length
         predio.andares.forEach((andar) => {
             let tomadas = andar.tel_pts * 2 - andar.cftv_pts - andar.voip_pts
             let patch_pannels = Math.ceil(tomadas / 24, 1)
@@ -290,13 +296,42 @@ function calcula_rack(predios) {
             quantidade: 1
         })
     })
+
     return racks
 }
-
-function calcula_materiais_miscelanea() {
+function calcula_materiais_miscelanea(racks, numero_de_andares) {
+    let parafusos = 0
+    let velcro = 0
+    let abracadeira = 0
+    let filtro_de_linha = 0
+    let etiquetas_pp = materiais_malha_horizontal[5].quantidade
+    let etiquetas_portas_pp = etiquetas_pp * 24
+    let etiquetas_pca = materiais_malha_horizontal[7].categoria['6'].cor['azul'].quantidade + materiais_malha_horizontal[7].categoria['6'].cor['verde'].quantidade + materiais_malha_horizontal[7].categoria['6'].cor['amarelo'].quantidade + materiais_malha_horizontal[7].categoria['5e'].cor['verde'].quantidade
+    let etiquetas_cmh = materiais_malha_horizontal[0].quantidade * 2
+    let etiquetas_pco = materiais_malha_horizontal[1].categoria['6']['azul'].quantidade + materiais_malha_horizontal[1].categoria['6']['a mesma do teto'].quantidade
+    let etiquetas_tomadas = materiais_malha_horizontal[0].quantidade
+    let etiquetas_espelho = materiais_malha_horizontal[2].tamanho['2x4'].quantidade + materiais_malha_horizontal[2].tamanho['4x4'].quantidade 
     
-}
+    racks.forEach((rack => {
+        parafusos += rack.tamanho * 4 * rack.quantidade / 10
+        velcro += rack.quantidade
+        abracadeira += rack.quantidade
+        filtro_de_linha += rack.quantidade
+    }))
 
+    let TOs = materiais_back_total[5].fibras[4].quantidade + materiais_back_total[5].fibras[6].quantidade + materiais_back_total[5].fibras[8].quantidade + materiais_back_total[5].fibras[12].quantidade
+
+    parafusos = Math.ceil(parafusos)
+
+    materiais_miscelanea[0].quantidade = parafusos;
+    materiais_miscelanea[1].quantidade = velcro
+    materiais_miscelanea[2].quantidade = abracadeira
+    materiais_miscelanea[3].quantidade = filtro_de_linha
+    materiais_miscelanea[4].quantidade = etiquetas_pp + etiquetas_portas_pp + etiquetas_pca + etiquetas_cmh + etiquetas_pco + etiquetas_tomadas + etiquetas_espelho
+    materiais_miscelanea[5].quantidade = numero_de_andares === undefined ? 0 : numero_de_andares
+    materiais_miscelanea[6].quantidade = TOs
+
+}
 function soma_backbones() {
     materiais_back_total[0].quantidade = materiais_back_lvl_1[0].quantidade + materiais_back_lvl_2[0].quantidade
     
@@ -335,7 +370,6 @@ function soma_backbones() {
     materiais_back_total[6]['MM']['62,5x125']['Tigth Buffer'].quantidade = materiais_back_lvl_1[6]['MM']['62,5x125']['Tigth Buffer'].quantidade + materiais_back_lvl_2[6]['MM']['62,5x125']['Tigth Buffer'].quantidade
 
 }
-
 function pega_predios() {
     let predios = [];  
     for(let i = 0; i < $(".predio").length; i++){
@@ -363,7 +397,6 @@ function pega_predios() {
 
     return predios;
 }
-
 function pega_andares(predio) {
     let andares = [];
     let distancia_interna = 0;

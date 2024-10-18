@@ -1,33 +1,9 @@
 <div class="andar">
     <h2>ANDAR</h2>
-    <input
-        name="tel_pts"
-        type="number"
-        min="0"
-        class="entrada"
-        placeholder="Num de Pnts de Telecom"
-    />
-    <input
-        name="cftv_pts"
-        type="number"
-        min="0"
-        class="entrada"
-        placeholder="Num de Pnts de CFTV"
-    />
-    <input
-        name="voip_pts"
-        type="number"
-        min="0"
-        class="entrada"
-        placeholder="Num de Pnts de VOIP"
-    />
-    <label>
-        Sala de Equipamentos<input type="radio" name="tem_SEQ" class="entrada"/>
-    </label>
-    <button
-        onclick="duplicar_andar($(this).parent().attr('id'))"
-        class="entrada"
-    >
+    <input name="tel_pts" type="number" min="0" class="entrada" placeholder="Num de Pnts de Telecom" />
+    <input name="cftv_pts" type="number" min="0" class="entrada" placeholder="Num de Pnts de CFTV" />
+    <input name="voip_pts" type="number" min="0" class="entrada" placeholder="Num de Pnts de VOIP" />
+    <button onclick="duplicar_andar($(this).parent().attr('id'))" class="entrada">
         DUPLICAR
     </button>
 </div>

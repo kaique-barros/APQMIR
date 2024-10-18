@@ -1,4 +1,5 @@
 function calcular() {
+
     let predios = pega_predios();
 
     var distancia_entre_predios = 0
@@ -144,6 +145,9 @@ function calcula_materiais_back_lvl_2(info, predios) {
         tipo_fibra: '',
         nucleo_fibra: ''
     }
+    if(info.quantidade_de_fibras == 0 || info.dist_interna == 0){
+        return
+    }
     if(info.velocidade == '1000'){
         if(info.dist_interna <= 260){
                 tecnologia.padrao_transmissao = "1000Base-SX"
@@ -224,7 +228,7 @@ function calcula_materiais_malha_horizontal(info, predios) {
         let patch_cord_cor_do_teto_PP = 0
         let patch_pannels_PP = 0
         predio.andares.forEach((andar) => {
-            let tomadas_no_andar = andar.tel_pts * 2 - andar.cftv_pts - andar.voip_pts
+            let tomadas_no_andar = (andar.tel_pts - andar.cftv_pts) * 2 + andar.cftv_pts
             tomadas_PP += tomadas_no_andar
             
             patch_cord_azul_PP += tomadas_no_andar - andar.cftv_pts
@@ -232,7 +236,7 @@ function calcula_materiais_malha_horizontal(info, predios) {
             
             patch_pannels_PP += Math.ceil(tomadas_no_andar / 24, 1)
 
-            patch_cable_azul += tomadas_no_andar - andar.cftv_pts - andar.voip_pts
+            patch_cable_azul += (andar.tel_pts - andar.cftv_pts) * 2 - andar.voip_pts
             patch_cable_verde += andar.voip_pts
             patch_cable_amarelo += andar.cftv_pts
         })

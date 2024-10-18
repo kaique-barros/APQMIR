@@ -82,4 +82,4 @@ const materiais_malha_horizontal = [
             }
         }
     }
-];
+]

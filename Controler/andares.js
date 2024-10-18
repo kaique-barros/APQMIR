@@ -1,7 +1,7 @@
 function adicionar_andar(predio){ 
     return new Promise((resolve) => {
         $.ajax({
-            url:"../View/Containers/andar.html",
+            url:"https://raw.githubusercontent.com/kaique-barros/APQMIR/refs/heads/main/View/Containers/andar.html",
             dataType: "html"})
                 .done((layout) => {
                 let nome_div_andares = predio + "-andares";

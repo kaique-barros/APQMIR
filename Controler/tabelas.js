@@ -1,6 +1,6 @@
 function inserir_tabela_backbone(tec_back_lvl_1, tec_back_lvl_2) {
     $.ajax({
-        url:"../View/Containers/tabelaBackbone.html",
+        url:"https://raw.githubusercontent.com/kaique-barros/APQMIR/refs/heads/main/View/Containers/tabelaBackbone.html",
         dataType: "html"})
             .done((layout) => {
                 $("#tabelas").append(layout)
@@ -454,7 +454,7 @@ function inserir_tabela_backbone(tec_back_lvl_1, tec_back_lvl_2) {
 
 function inserir_tabela_malha_horiontal(racks) {
     $.ajax({
-        url:"../View/Containers/tabelaMH.html",
+        url:"https://raw.githubusercontent.com/kaique-barros/APQMIR/refs/heads/main/View/Containers/tabelaMH.html",
         dataType: 'html'})
         .done((layout => {
             $('#tabelas').append(layout)

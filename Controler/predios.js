@@ -8,7 +8,7 @@ function atualizar_numero_predios(){
 
 function adicionar_predio(){ 
     $.ajax({
-        url:"../View/Containers/predio.html",
+        url:"https://raw.githubusercontent.com/kaique-barros/APQMIR/refs/heads/main/View/Containers/predio.html",
         dataType: "html"})
         .done((layout) => {
             $("#predios").append(layout);

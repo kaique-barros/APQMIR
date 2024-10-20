@@ -418,7 +418,6 @@ function pega_andares(predio) {
             tel_pts: isNaN(pontos_de_telecom) ? 0 : pontos_de_telecom,
             cftv_pts: isNaN(pontos_de_cftv) ? 0 : pontos_de_cftv,
             voip_pts: isNaN(pontos_de_voip) ? 0 : pontos_de_voip,
-            tem_seq: $("#" + andar_atual + " input[name="+ predio +"_seq")[0].checked,
             distancia_a_seq: andar_atual.slice(9) == "andar_1" ? 0 : numero_andar * 5 + 5
         }
         distancia_interna += andar.distancia_a_seq;

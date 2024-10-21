@@ -39,6 +39,10 @@ function calcular() {
 
     });
 
+    if(pontos_de_telecom == 0){
+        return
+    }
+
     if(tem_backbone_lvl_1 || distancia_interna != 0){
         quantidade_de_fibras += 4
         quantidade_de_fibras += tem_cftv ? 4 : 0
@@ -85,6 +89,7 @@ function calcular() {
 
     inserir_tabela_backbone(tec_back_lvl_1, tec_back_lvl_2)
     inserir_tabela_malha_horiontal(racks)
+    return
 }
 
 var tecnologias = { 
@@ -269,6 +274,7 @@ function calcula_materiais_malha_horizontal(info, predios) {
         let patch_pannels_PP = 0
         predio.andares.forEach((andar) => {
             let tomadas_no_andar = (andar.tel_pts - andar.cftv_pts) * 2 + andar.cftv_pts
+            console.log(tomadas_no_andar)
             tomadas_PP += tomadas_no_andar
             
             patch_cord_azul_PP += tomadas_no_andar - andar.cftv_pts
@@ -276,9 +282,9 @@ function calcula_materiais_malha_horizontal(info, predios) {
             
             patch_pannels_PP += Math.ceil(tomadas_no_andar / 24, 1)
 
-            patch_cable_azul += (andar.tel_pts - andar.cftv_pts) * 2 - andar.voip_pts
             patch_cable_verde += andar.voip_pts
             patch_cable_amarelo += andar.cftv_pts
+            patch_cable_azul += tomadas_no_andar - andar.voip_pts - andar.cftv_pts
         })
         tomadas += tomadas_PP
         
@@ -351,11 +357,8 @@ function calcula_materiais_miscelanea(racks, numero_de_andares) {
     let velcro = 0
     let abracadeira = 0
     let filtro_de_linha = 0
-    let etiquetas_pp = materiais_malha_horizontal[5].quantidade
-    let etiquetas_portas_pp = etiquetas_pp * 24
-    let etiquetas_pca = materiais_malha_horizontal[7].categoria['6'].cor['azul'].quantidade + materiais_malha_horizontal[7].categoria['6'].cor['verde'].quantidade + materiais_malha_horizontal[7].categoria['6'].cor['amarelo'].quantidade + materiais_malha_horizontal[7].categoria['5e'].cor['verde'].quantidade
-    let etiquetas_cmh = materiais_malha_horizontal[0].quantidade * 2
-    let etiquetas_pco = materiais_malha_horizontal[1].categoria['6']['azul'].quantidade + materiais_malha_horizontal[1].categoria['6']['a mesma do teto'].quantidade
+    let etiquetas_patch_cable = materiais_malha_horizontal[7].categoria['6'].cor['azul'].quantidade + materiais_malha_horizontal[7].categoria['6'].cor['verde'].quantidade + materiais_malha_horizontal[7].categoria['6'].cor['amarelo'].quantidade + materiais_malha_horizontal[7].categoria['5e'].cor['verde'].quantidade
+    let etiquetas_cabos_na_malha_horizontal = materiais_malha_horizontal[0].quantidade * 2
     let etiquetas_tomadas = materiais_malha_horizontal[0].quantidade
     let etiquetas_espelho = materiais_malha_horizontal[2].tamanho['2x4'].quantidade + materiais_malha_horizontal[2].tamanho['4x4'].quantidade 
     
@@ -374,7 +377,7 @@ function calcula_materiais_miscelanea(racks, numero_de_andares) {
     materiais_miscelanea[1].quantidade = velcro
     materiais_miscelanea[2].quantidade = abracadeira
     materiais_miscelanea[3].quantidade = filtro_de_linha
-    materiais_miscelanea[4].quantidade = etiquetas_pp + etiquetas_portas_pp + etiquetas_pca + etiquetas_cmh + etiquetas_pco + etiquetas_tomadas + etiquetas_espelho
+    materiais_miscelanea[4].quantidade =etiquetas_patch_cable + etiquetas_cabos_na_malha_horizontal + etiquetas_tomadas + etiquetas_espelho
     materiais_miscelanea[5].quantidade = numero_de_andares === undefined ? 0 : numero_de_andares
     materiais_miscelanea[6].quantidade = TOs
 

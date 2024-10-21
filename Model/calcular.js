@@ -86,12 +86,30 @@ function calcular() {
     inserir_tabela_backbone(tec_back_lvl_1, tec_back_lvl_2)
     inserir_tabela_malha_horiontal(racks)
 }
+
+var tecnologias = { 
+    "1000Base-SX62,5x125":1,
+    "1000Base-SX50x125":2,
+    "1000Base-LX50x125":3,
+    "1000Base-LX9x125":4,
+    "10GBase-SR9x125":5,
+    "10GBase-LR9x125":6,
+    "10GBase-ER9x125":7
+}
+
 function calcula_materiais_back_lvl_1(info) {
     let tecnologia = {
         padrao_transmissao: '',
         tipo_fibra: '',
         nucleo_fibra: ''
     }
+
+    let tecnologia_pre_definida = $("#tec_back_ext .transmissao")[0].value
+    let fibra_pre_definida = $("#tec_back_ext .fibra")[0].value
+    if(tecnologias[tecnologia_pre_definida + fibra_pre_definida] === undefined && tecnologia_pre_definida != "N/A" && fibra_pre_definida != "N/A"){
+        alert("A tecnologia do backbone externo é incompatível com a fibra definida")
+    }
+
     if(info.velocidade == '1000'){
         if(info.dist_max <= 260){
                 tecnologia.padrao_transmissao = "1000Base-SX"
@@ -128,6 +146,8 @@ function calcula_materiais_back_lvl_1(info) {
         return 
     }
 
+    if(tecnologias)
+    
     materiais_back_lvl_1[0].quantidade = info.qnt_predios;
     materiais_back_lvl_1[1].quantidade = info.qnt_predios;
     materiais_back_lvl_1[2][tecnologia.tipo_fibra][tecnologia.nucleo_fibra].quantidade = info.qnt_fibras * info.qnt_predios;

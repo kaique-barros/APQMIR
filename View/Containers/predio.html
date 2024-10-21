@@ -1,21 +1,9 @@
-<div
-    class="predio"
-    style="color: white; font-family: Arial, Helvetica, sans-serif"
->
+<div class="predio" style="color: white; font-family: Arial, Helvetica, sans-serif">
     <h2>PREDIO</h2>
-    <button
-        id="add_andar"
-        onclick="adicionar_andar($(this).parent().attr('id'))"
-        class="entrada"
-    >
+    <button id="add_andar" onclick="adicionar_andar($(this).parent().attr('id'))" class="entrada">
+    <button onclick="$(this).parent().remove()">EXCLUIR PRÉDIO</button>
         Adicionar Andar
     </button>
-    <input
-        type="number"
-        name="dist_ate_ef"
-        placeholder="Distância até a EF"
-        min="0"
-        class="entrada"
-    />
+    <input type="number" name="dist_ate_ef" placeholder="Distância até a EF" min="0" class="entrada" />
     <div></div>
 </div>

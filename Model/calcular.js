@@ -108,6 +108,7 @@ function calcula_materiais_back_lvl_1(info) {
     let fibra_pre_definida = $("#tec_back_ext .fibra")[0].value
     if(tecnologias[tecnologia_pre_definida + fibra_pre_definida] === undefined && tecnologia_pre_definida != "N/A" && fibra_pre_definida != "N/A"){
         alert("A tecnologia do backbone externo é incompatível com a fibra definida")
+        return
     }
 
     if(info.velocidade == '1000'){
@@ -146,15 +147,19 @@ function calcula_materiais_back_lvl_1(info) {
         return 
     }
 
-    if(tecnologias)
-    
+    if(tecnologias[tecnologia_pre_definida + fibra_pre_definida] !== undefined && tecnologias[tecnologia.padrao_transmissao + tecnologia.nucleo_fibra] < tecnologias[tecnologia_pre_definida + fibra_pre_definida]){
+        tecnologia.padrao_transmissao = tecnologia_pre_definida
+        tecnologia.nucleo_fibra = fibra_pre_definida
+        tecnologia.tipo_fibra = fibra_pre_definida == "9x125" ? "SM" : "MM"
+    }
+
     materiais_back_lvl_1[0].quantidade = info.qnt_predios;
     materiais_back_lvl_1[1].quantidade = info.qnt_predios;
     materiais_back_lvl_1[2][tecnologia.tipo_fibra][tecnologia.nucleo_fibra].quantidade = info.qnt_fibras * info.qnt_predios;
     materiais_back_lvl_1[3][tecnologia.tipo_fibra][tecnologia.nucleo_fibra].quantidade = info.qnt_fibras * info.qnt_predios / 2;
     materiais_back_lvl_1[4][tecnologia.tipo_fibra][tecnologia.nucleo_fibra].quantidade = info.qnt_fibras * info.qnt_predios / 2;
     //O 5 é terminadar óptico, backbone lvl 1 n leva TO
-    materiais_back_lvl_1[6][tecnologia.tipo_fibra][tecnologia.nucleo_fibra]['Loose'].quantidade = info.dist_predios * 1.2;
+    materiais_back_lvl_1[6][tecnologia.tipo_fibra][tecnologia.nucleo_fibra]['Loose'].quantidade = Math.ceil(info.dist_predios * 1.2);
     materiais_back_lvl_1[6].quantidade_de_fibras = info.qnt_fibras
 
     return tecnologia;
@@ -168,6 +173,14 @@ function calcula_materiais_back_lvl_2(info, predios) {
     if(info.quantidade_de_fibras == 0 || info.dist_interna == 0){
         return
     }
+
+    let tecnologia_pre_definida = $("#tec_back_int .transmissao")[0].value
+    let fibra_pre_definida = $("#tec_back_int .fibra")[0].value
+    if(tecnologias[tecnologia_pre_definida + fibra_pre_definida] === undefined && tecnologia_pre_definida != "N/A" && fibra_pre_definida != "N/A"){
+        alert("A tecnologia do backbone externo é incompatível com a fibra definida")
+        return
+    }
+
     if(info.velocidade == '1000'){
         if(info.dist_interna <= 260){
                 tecnologia.padrao_transmissao = "1000Base-SX"
@@ -203,6 +216,13 @@ function calcula_materiais_back_lvl_2(info, predios) {
     } else {
         return
     }
+
+    if(tecnologias[tecnologia_pre_definida + fibra_pre_definida] !== undefined && tecnologias[tecnologia.padrao_transmissao + tecnologia.nucleo_fibra] < tecnologias[tecnologia_pre_definida + fibra_pre_definida]){
+        tecnologia.padrao_transmissao = tecnologia_pre_definida
+        tecnologia.nucleo_fibra = fibra_pre_definida
+        tecnologia.tipo_fibra = fibra_pre_definida == "9x125" ? "SM" : "MM"
+    }
+
     let DIO = 0
     let acessorios = 0
     let pigtais = 0

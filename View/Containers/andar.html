@@ -3,9 +3,9 @@
     <input name="tel_pts" type="number" min="0" class="entrada" placeholder="Num de Pnts de Telecom" />
     <input name="cftv_pts" type="number" min="0" class="entrada" placeholder="Num de Pnts de CFTV" />
     <input name="voip_pts" type="number" min="0" class="entrada" placeholder="Num de Pnts de VOIP" />
-    <button onclick="duplicar_andar($(this).parent().attr('id'))" class="entrada">
-        DUPLICAR
-    </button>
+    <label for="rack_fechado">RACK FECHADO</label>
+    <input type="checkbox" id="rack_fechado">
+    <button onclick="duplicar_andar($(this).parent().attr('id'))" class="entrada">DUPLICAR</button>
     <button onclick="excluir_andar($(this))">EXCLUIR ANDAR</button>
     <script>
         async function excluir_andar(andar) {

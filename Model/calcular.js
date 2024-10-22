@@ -120,7 +120,7 @@ function calcula_materiais_back_lvl_1(info) {
         if(info.dist_max <= 260){
                 tecnologia.padrao_transmissao = "1000Base-SX"
                 tecnologia.tipo_fibra = "MM"
-                tecnologia.nucleo_fibra = "62,5x125"
+                tecnologia.nucleo_fibra = "50x125"
         } else if(info.dist_max <= 500) {
                 tecnologia.padrao_transmissao = "1000Base-SX"
                 tecnologia.tipo_fibra = "MM"
@@ -158,6 +158,45 @@ function calcula_materiais_back_lvl_1(info) {
         tecnologia.tipo_fibra = fibra_pre_definida == "9x125" ? "SM" : "MM"
     }
 
+    //limpando a memória
+    materiais_back_lvl_1[0].quantidade = 0
+    
+    materiais_back_lvl_1[1].quantidade = 0
+    
+    materiais_back_lvl_1[2]['MM']['50x125'].quantidade = 0
+    materiais_back_lvl_1[2]['MM']['62,5x125'].quantidade = 0
+    materiais_back_lvl_1[2]['SM']['9x125'].quantidade = 0
+    
+    materiais_back_lvl_1[3]['MM']['50x125'].quantidade = 0
+    materiais_back_lvl_1[3]['MM']['62,5x125'].quantidade = 0
+    materiais_back_lvl_1[3]['SM']['9x125'].quantidade = 0
+    
+    materiais_back_lvl_1[4]['MM']['50x125'].quantidade = 0
+    materiais_back_lvl_1[4]['MM']['62,5x125'].quantidade = 0
+    materiais_back_lvl_1[4]['SM']['9x125'].quantidade = 0
+
+    materiais_back_lvl_1[5].fibras[4].quantidade = 0
+    materiais_back_lvl_1[5].fibras[6].quantidade = 0
+    materiais_back_lvl_1[5].fibras[8].quantidade = 0
+    materiais_back_lvl_1[5].fibras[12].quantidade = 0
+
+    materiais_back_lvl_1[6].quantidade_de_fibras = 0
+    materiais_back_lvl_1[6].quantidade_de_fibras = 0
+
+    materiais_back_lvl_1[6]['SM']['9x125']['Loose'].quantidade = 0
+    materiais_back_lvl_1[6]['SM']['9x125']['Loose autosustentável'].quantidade = 0
+    materiais_back_lvl_1[6]['SM']['9x125']['Tigth Buffer'].quantidade = 0
+
+    materiais_back_lvl_1[6]['MM']['50x125']['Loose'].quantidade = 0
+    materiais_back_lvl_1[6]['MM']['50x125']['Loose autosustentável'].quantidade = 0
+    materiais_back_lvl_1[6]['MM']['50x125']['Tigth Buffer'].quantidade = 0
+
+    materiais_back_lvl_1[6]['MM']['62,5x125']['Loose'].quantidade = 0
+    materiais_back_lvl_1[6]['MM']['62,5x125']['Loose autosustentável'].quantidade = 0
+    materiais_back_lvl_1[6]['MM']['62,5x125']['Tigth Buffer'].quantidade = 0
+    //
+
+
     materiais_back_lvl_1[0].quantidade = info.qnt_predios;
     materiais_back_lvl_1[1].quantidade = info.qnt_predios;
     materiais_back_lvl_1[2][tecnologia.tipo_fibra][tecnologia.nucleo_fibra].quantidade = info.qnt_fibras * info.qnt_predios;
@@ -190,7 +229,7 @@ function calcula_materiais_back_lvl_2(info, predios) {
         if(info.dist_interna <= 260){
                 tecnologia.padrao_transmissao = "1000Base-SX"
                 tecnologia.tipo_fibra = "MM"
-                tecnologia.nucleo_fibra = "62,5x125"
+                tecnologia.nucleo_fibra = "50x125"
         } else if(info.dist_interna <= 500) {
                 tecnologia.padrao_transmissao = "1000Base-SX"
                 tecnologia.tipo_fibra = "MM"
@@ -244,6 +283,45 @@ function calcula_materiais_back_lvl_2(info, predios) {
         to += predio.andares.length - 1
         acessorios += predio.andares.length - 1
     });
+
+    //limpando a memória
+    materiais_back_lvl_2[0].quantidade = 0
+    
+    materiais_back_lvl_2[1].quantidade = 0
+    
+    materiais_back_lvl_2[2]['MM']['50x125'].quantidade = 0
+    materiais_back_lvl_2[2]['MM']['62,5x125'].quantidade = 0
+    materiais_back_lvl_2[2]['SM']['9x125'].quantidade = 0
+    
+    materiais_back_lvl_2[3]['MM']['50x125'].quantidade = 0
+    materiais_back_lvl_2[3]['MM']['62,5x125'].quantidade = 0
+    materiais_back_lvl_2[3]['SM']['9x125'].quantidade = 0
+    
+    materiais_back_lvl_2[4]['MM']['50x125'].quantidade = 0
+    materiais_back_lvl_2[4]['MM']['62,5x125'].quantidade = 0
+    materiais_back_lvl_2[4]['SM']['9x125'].quantidade = 0
+
+    materiais_back_lvl_2[5].fibras[4].quantidade = 0
+    materiais_back_lvl_2[5].fibras[6].quantidade = 0
+    materiais_back_lvl_2[5].fibras[8].quantidade = 0
+    materiais_back_lvl_2[5].fibras[12].quantidade = 0
+
+    materiais_back_lvl_2[6].quantidade_de_fibras = 0
+    materiais_back_lvl_2[6].quantidade_de_fibras = 0
+
+    materiais_back_lvl_2[6]['SM']['9x125']['Loose'].quantidade = 0
+    materiais_back_lvl_2[6]['SM']['9x125']['Loose autosustentável'].quantidade = 0
+    materiais_back_lvl_2[6]['SM']['9x125']['Tigth Buffer'].quantidade = 0
+
+    materiais_back_lvl_2[6]['MM']['50x125']['Loose'].quantidade = 0
+    materiais_back_lvl_2[6]['MM']['50x125']['Loose autosustentável'].quantidade = 0
+    materiais_back_lvl_2[6]['MM']['50x125']['Tigth Buffer'].quantidade = 0
+
+    materiais_back_lvl_2[6]['MM']['62,5x125']['Loose'].quantidade = 0
+    materiais_back_lvl_2[6]['MM']['62,5x125']['Loose autosustentável'].quantidade = 0
+    materiais_back_lvl_2[6]['MM']['62,5x125']['Tigth Buffer'].quantidade = 0
+    //
+    //
 
     materiais_back_lvl_2[0].quantidade = DIO
     materiais_back_lvl_2[1].quantidade = acessorios
@@ -373,16 +451,63 @@ function calcula_materiais_miscelanea(racks, numero_de_andares) {
 
     parafusos = Math.ceil(parafusos)
 
+    //limpando a memoria
+    materiais_miscelanea[0].quantidade = 0
+    materiais_miscelanea[1].quantidade = 0
+    materiais_miscelanea[2].quantidade = 0
+    materiais_miscelanea[3].quantidade = 0
+    materiais_miscelanea[4].quantidade = 0
+    materiais_miscelanea[5].quantidade = 0
+    materiais_miscelanea[6].quantidade = 0
+
     materiais_miscelanea[0].quantidade = parafusos;
     materiais_miscelanea[1].quantidade = velcro
     materiais_miscelanea[2].quantidade = abracadeira
     materiais_miscelanea[3].quantidade = filtro_de_linha
-    materiais_miscelanea[4].quantidade =etiquetas_patch_cable + etiquetas_cabos_na_malha_horizontal + etiquetas_tomadas + etiquetas_espelho
+    materiais_miscelanea[4].quantidade = etiquetas_patch_cable + etiquetas_cabos_na_malha_horizontal + etiquetas_tomadas + etiquetas_espelho
     materiais_miscelanea[5].quantidade = numero_de_andares === undefined ? 0 : numero_de_andares
     materiais_miscelanea[6].quantidade = TOs
 
 }
 function soma_backbones() {
+    //limpando a memória
+    materiais_back_total[0].quantidade = 0
+    
+    materiais_back_total[1].quantidade = 0
+    
+    materiais_back_total[2]['MM']['50x125'].quantidade = 0
+    materiais_back_total[2]['MM']['62,5x125'].quantidade = 0
+    materiais_back_total[2]['SM']['9x125'].quantidade = 0
+    
+    materiais_back_total[3]['MM']['50x125'].quantidade = 0
+    materiais_back_total[3]['MM']['62,5x125'].quantidade = 0
+    materiais_back_total[3]['SM']['9x125'].quantidade = 0
+    
+    materiais_back_total[4]['MM']['50x125'].quantidade = 0
+    materiais_back_total[4]['MM']['62,5x125'].quantidade = 0
+    materiais_back_total[4]['SM']['9x125'].quantidade = 0
+
+    materiais_back_total[5].fibras[4].quantidade = 0
+    materiais_back_total[5].fibras[6].quantidade = 0
+    materiais_back_total[5].fibras[8].quantidade = 0
+    materiais_back_total[5].fibras[12].quantidade = 0
+
+    materiais_back_total[6].quantidade_de_fibras = 0
+    materiais_back_total[6].quantidade_de_fibras = 0
+
+    materiais_back_total[6]['SM']['9x125']['Loose'].quantidade = 0
+    materiais_back_total[6]['SM']['9x125']['Loose autosustentável'].quantidade = 0
+    materiais_back_total[6]['SM']['9x125']['Tigth Buffer'].quantidade = 0
+
+    materiais_back_total[6]['MM']['50x125']['Loose'].quantidade = 0
+    materiais_back_total[6]['MM']['50x125']['Loose autosustentável'].quantidade = 0
+    materiais_back_total[6]['MM']['50x125']['Tigth Buffer'].quantidade = 0
+
+    materiais_back_total[6]['MM']['62,5x125']['Loose'].quantidade = 0
+    materiais_back_total[6]['MM']['62,5x125']['Loose autosustentável'].quantidade = 0
+    materiais_back_total[6]['MM']['62,5x125']['Tigth Buffer'].quantidade = 0
+    //
+
     materiais_back_total[0].quantidade = materiais_back_lvl_1[0].quantidade + materiais_back_lvl_2[0].quantidade
     
     materiais_back_total[1].quantidade = materiais_back_lvl_1[1].quantidade + materiais_back_lvl_2[1].quantidade

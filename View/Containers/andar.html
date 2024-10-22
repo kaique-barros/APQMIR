@@ -6,5 +6,11 @@
     <button onclick="duplicar_andar($(this).parent().attr('id'))" class="entrada">
         DUPLICAR
     </button>
-    <button onclick="$(this).parent().remove()">EXCLUIR ANDAR</button>
+    <button onclick="excluir_andar($(this))">EXCLUIR ANDAR</button>
+    <script>
+        function excluir_andar(andar) {
+            andar.parent().remove()
+            atualizar_numero_andares()
+        }
+    </script>
 </div>

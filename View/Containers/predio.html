@@ -5,7 +5,7 @@
     <script>
         async function excluir_predio(predio) {
             await(tira_predio(predio))
-            atualizar_numero_predios()
+            atualizar_numero_predios(true)
         }
 
         function tira_predio(predio){
@@ -17,4 +17,4 @@
     </script>
     <input type="number" name="dist_ate_ef" placeholder="Distância até a EF" min="0" class="entrada" />
     <div></div>
-</div>
+</div>  

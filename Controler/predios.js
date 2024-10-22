@@ -1,9 +1,11 @@
-function atualizar_numero_predios(){
+function atualizar_numero_predios(so_atualizar){
     let predios = document.getElementsByClassName("predio");
     let predio = "predio_" + predios.length;
     predios[predios.length - 1].id = predio;
     $("#" + predio + " > h2")[0].innerHTML = "PREDIO " + predios.length;
-    adicionar_andar(predio);
+    if(!so_atualizar){
+        adicionar_andar(predio);
+    }
 }
 
 function adicionar_predio(){ 
@@ -12,6 +14,6 @@ function adicionar_predio(){
         dataType: "html"})
         .done((layout) => {
             $("#predios").append(layout);
-            atualizar_numero_predios();
+            atualizar_numero_predios(false);
     })
 };

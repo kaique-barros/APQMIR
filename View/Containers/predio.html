@@ -3,9 +3,16 @@
     <button id="add_andar" onclick="adicionar_andar($(this).parent().attr('id'))" class="entrada">Adicionar Andar</button>
     <button onclick="excluir_predio($(this))">EXCLUIR PRÉDIO</button>
     <script>
-        function excluir_predio(predio) {
-            predio.parent().remove()
+        async function excluir_predio(predio) {
+            await(tira_predio(predio))
             atualizar_numero_predios()
+        }
+
+        function tira_predio(predio){
+            return new Promise((resolve) => {
+                predio.parent().remove()
+                resolve(10)
+            })
         }
     </script>
     <input type="number" name="dist_ate_ef" placeholder="Distância até a EF" min="0" class="entrada" />

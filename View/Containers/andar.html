@@ -8,9 +8,16 @@
     </button>
     <button onclick="excluir_andar($(this))">EXCLUIR ANDAR</button>
     <script>
-        function excluir_andar(andar) {
-            andar.parent().remove()
-            atualizar_numero_andares()
+        async function excluir_andar(andar) {
+            await(tira_andar(andar))
+            atualizar_numero_andars()
+        }
+
+        function tira_andar(andar){
+            return new Promise((resolve) => {
+                andar.parent().remove()
+                resolve(10)
+            })
         }
     </script>
 </div>

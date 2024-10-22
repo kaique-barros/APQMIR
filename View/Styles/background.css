@@ -126,7 +126,6 @@ label input[type="radio"] {
     box-shadow: 0 4px 8px; /* Sombra leve */
     border-radius: 10px; /* Bordas arredondadas */
     width: 80%;
-    max-width: 800px;
 }
 
 /* Estilização de títulos */

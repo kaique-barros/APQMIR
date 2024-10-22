@@ -15,9 +15,12 @@ html {
 }
 
 #predios {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Dois prédios por linha */
-    gap: 20px;
+    display: flex;
+    overflow: scroll;
+}
+
+.predio{
+    min-width: 50%;
 }
 
 /* Responsividade */

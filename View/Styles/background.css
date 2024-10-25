@@ -1,141 +1,111 @@
 /* Estilização do corpo */
 body {
-    background-color: #f4f4f9; /* Cor clara para um visual limpo */
+    background-color: #f4f4f9;
     font-family: "Arial", sans-serif;
-    color: #333333; /* Mudança para uma cor escura adequada */
-    min-height: 100vh; /* Garante que o corpo tenha pelo menos a altura total da tela */
+    color: #333333;
+    min-height: 100vh;
 }
 
 /* Estilização geral */
 .entrada {
-    border-radius: 5px; /* Bordas mais suaves */
+    border-radius: 5px;
     margin: 5px 5px 15px 5px;
     padding: 10px;
-    background-color: #007bff; /* Cor azul para os botões */
-    color: white; /* Texto branco nos botões */
-    border: none; /* Remover borda */
-    cursor: pointer; /* Mudança de cursor para botão */
-    transition: background-color 0.3s ease; /* Animação de hover */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Placeholder styling - Cross-browser */
+/* Placeholder styling */
 .entrada::placeholder {
-    color: #e0e0e0; /* Cor mais clara para o placeholder */
-}
-
-/* Para navegadores WebKit (Chrome, Safari, etc.) */
-.entrada::-webkit-input-placeholder {
     color: #e0e0e0;
 }
 
-/* Para Firefox */
-.entrada::-moz-placeholder {
-    color: #e0e0e0;
-}
-
-/* Para Internet Explorer 10-11 */
-.entrada:-ms-input-placeholder {
-    color: #e0e0e0;
-}
-
-/* Para Edge */
-.entrada::-ms-input-placeholder {
-    color: #e0e0e0;
-}
-/* Estilização do Header */
 #main-header {
     background-color: #1a4c7b;
-    padding: 0; /* Remover padding */
-    height: 170px; /* Deixar altura automática para ajustar */
+    padding: 0;
+    height: 170px;
     display: flex;
     justify-content: center;
     border-bottom: 1px #0056b3;
 }
 
-/* Estilização do Container da Logo */
 #logo-container {
     display: flex;
     align-items: center;
-    margin: 0; /* Remove margens */
-    padding: 0; /* Remove padding */
+    margin: 0;
+    padding: 0;
 }
 
-/* Estilização da Logo */
 #cefet-logo {
-    max-width: 150px; /* Tamanho ajustado da logo */
-    height: auto; /* Mantém a proporção da logo */
-    display: block; /* Garante que não haja espaço embaixo da imagem */
-    margin: 0; /* Remove margens */
-    padding: 0; /* Remove padding */
-    border: none; /* Remove qualquer borda */
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
-/* Estilização do Footer */
 #main-footer {
-    background-color: #1a4c7b; /* Cor para combinar com o header */
-    color: white; /* Texto em branco para contraste */
-    text-align: center; /* Centraliza o texto */
-    padding: 20px 0; /* Espaçamento vertical */
-    position: relative; /* Para o posicionamento */
-    bottom: 0; /* Fixa o footer ao fundo */
-    width: 100%; /* Faz o footer ocupar toda a largura */
+    background-color: #1a4c7b;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
-/* Estilização dos parágrafos no footer */
 #main-footer p {
-    margin: 5px 0; /* Margens para os parágrafos */
+    margin: 5px 0;
 }
 
 label {
-    font-size: 1.2em; /* Aumenta o tamanho da fonte */
-    color: #007bff; /* Cor da fonte */
-    margin-right: 8px; /* Espaço à direita da label */
-    display: flex; /* Permite que o texto e o input fiquem alinhados */
-    align-items: center; /* Centraliza verticalmente */
+    font-size: 1.2em;
+    color: #007bff;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
 }
 
 label input[type="radio"] {
-    margin-left: 2px; /* Espaço à esquerda do input de rádio */
+    margin-left: 2px;
 }
 
 .entrada:hover {
-    background-color: #0056b3; /* Cor mais escura no hover */
+    background-color: #0056b3;
 }
 
-/* Estilização do layout */
 #divInputs {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 20px 0;
-    padding: 20px; /* Adiciona padding ao container */
-    background-color: #ffffff; /* Fundo branco para o container */
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
-    border-radius: 10px; /* Bordas arredondadas */
-    width: 90%; /* Aumenta a largura do container */
-    max-width: 900px; /* Aumenta a largura máxima */
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 900px;
 }
 
-/* Estilização de divisões */
-#predios,
-.predio,
-.andar {
+#predios, .predio, .andar {
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff; /* Fundo branco */
-    box-shadow: 0 4px 8px; /* Sombra leve */
-    border-radius: 10px; /* Bordas arredondadas */
+    background-color: #fff;
+    box-shadow: 0 4px 8px;
+    border-radius: 10px;
     width: 80%;
 }
 
-/* Estilização de títulos */
 h2 {
     font-size: 1.5em;
     color: #007bff;
     text-align: center;
 }
 
-/* Inputs de número */
 input[type="number"] {
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -143,5 +113,31 @@ input[type="number"] {
     width: 100%;
     max-width: 300px;
     margin-top: 10px;
+    font-size: 1em;
+}
+
+/* Estilização dos inputs de tecnologia para seguir o padrão */
+.tecnologia_pre_definida {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 80%;
+    color: #333333;
+}
+
+.tecnologia_pre_definida h3 {
+    color: #007bff;
+    font-size: 1.2em;
+}
+
+.tecnologia_pre_definida select {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 300px;
     font-size: 1em;
 }

@@ -131,3 +131,67 @@ select {
     max-width: 200px;
     margin: 10px auto;
 }
+
+/* Para o contêiner principal */
+#divInputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Alinhamento do rótulo "Distância Média da Malha Horizontal" */
+#distancia-malha {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+/* Para alinhar os quadros de Backbone */
+.backbone-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Estilo dos quadros */
+.backbone-inputs select {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+/* Para os botões "Calcular" e "Adicionar Prédio" */
+#action-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 500px;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 48%; /* Para que os botões ocupem metade do espaço disponível */
+}
+
+button:hover {
+    background-color: #0056b3;
+}

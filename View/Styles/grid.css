@@ -1,6 +1,5 @@
 /* Layout básico responsivo */
-body,
-html {
+body, html {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -19,30 +18,30 @@ html {
     overflow: scroll;
 }
 
-.predio{
+.predio {
     min-width: 40%;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     #divInputs {
-        grid-template-columns: 1fr; /* Colocar inputs em uma coluna para telas pequenas */
+        grid-template-columns: 1fr;
     }
 
     #predios {
-        grid-template-columns: 1fr; /* Colocar um prédio por linha em telas menores */
+        grid-template-columns: 1fr;
     }
 }
 
 /* Estilo geral da janela que contém a tabela */
 .table-container {
     width: 90%;
-    margin: 50px auto; /* Margem automática para centralizar */
+    margin: 50px auto;
     padding: 20px;
-    border: 2px solid #ccc; /* Borda ao redor da janela */
-    border-radius: 10px; /* Bordas arredondadas */
-    background-color: #f9f9f9; /* Cor de fundo */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efeito de sombra para destacar */
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo da tabela */
@@ -51,8 +50,7 @@ table {
     border-collapse: collapse;
 }
 
-th,
-td {
+th, td {
     padding: 10px;
     text-align: left;
     border: 1px solid #ddd;
